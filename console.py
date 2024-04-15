@@ -122,7 +122,7 @@ class HBNBCommand(cmd.Cmd):
                 key = kv_pair[0]
                 value = kv_pair[1]
                 if value.startswith('"') and value.endswith('"'):
-                    value = value[1, -1].replace("_", " ")
+                    value = value[1:-1].replace("_", " ")
                 else:
                     try:
                         value = int(value)
@@ -142,7 +142,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) > 0:
             arg_lst = args.split()
             class_name = arg_lst[0]
-            parameters_lst = alr_lst[1:]
+            parameters_lst = arg_lst[1:]
         if class_name in HBNBCommand.classes:
             new_dict = self._param_format(parameters_lst)
             new_instance = HBNBCommand.classes[class_name](**new_dict)
