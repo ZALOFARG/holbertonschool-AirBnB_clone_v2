@@ -19,10 +19,12 @@ def hbnb():
     """Returns a short greeting message"""
     return "HBNB"
 
+
 @app.route("/c/<text>", strict_slashes=False)
 def c_route(text):
     """Returns 'C' followed by the value of <text>"""
     return f"C {text.replace('_', ' ')}"
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
